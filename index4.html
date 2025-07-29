@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Abdulmuiz's Event Organizer</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1c92d2, #f2fcfe);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    header {
+      padding: 40px 20px 20px;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #1c92d2;
+    }
+
+    .quote {
+      font-size: 1.2em;
+      font-style: italic;
+      color: #555;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .purpose {
+      font-size: 1.1em;
+      margin: 20px auto 30px;
+      max-width: 700px;
+      padding: 0 15px;
+      line-height: 1.6em;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 90%;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+
+    select, input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #1c92d2;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .contact-links {
+      margin-top: 30px;
+    }
+
+    .contact-links a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      background-color: #28a745;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-links a.email {
+      background-color: #6c63ff;
+    }
+
+    .contact-links a:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-bottom: 20px;
+      font-size: 0.9em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Abdulmuiz's Event Organizer 🎊</h1>
+    <p class="quote">"Even a single invite can create a lifetime of memories." — Abdulmuiz</p>
+  </header>
+
+  <p class="purpose">
+    This tool was created to make it easier for people to request personalized invitations for their events. 
+    Whether it's a birthday, wedding, graduation, or special celebration, you can now reach out to me directly 
+    and tell me exactly what you want. My goal is to help people save time and get beautifully crafted invites fast.
+  </p>
+
+  <div class="form-container">
+    <form onsubmit="sendToWhatsApp(); return false;">
+  <label for="name">Your Name:</label>
+  <input type="text" id="name" placeholder="Enter your name" required>
+
+  <label for="eventType">Event Type:</label>
+  <select id="eventType" required>
+    <option value="">-- Select an event --</option>
+    <option value="Wedding">Wedding</option>
+    <option value="Birthday">Birthday</option>
+    <option value="Graduation">Graduation</option>
+    <option value="Naming Ceremony">Naming Ceremony</option>
+    <option value="House Opening">House Opening</option>
+    <option value="Religious Event">Religious Event</option>
+  </select>
+
+  <label for="eventDate">Date of Event:</label>
+  <input type="date" id="eventDate" required>
+
+  <label for="eventTime">Time of Event:</label>
+  <input type="time" id="eventTime" required>
+
+  <label for="eventVenue">Venue:</label>
+  <input type="text" id="eventVenue" placeholder="Enter event venue" required>
+
+  <label for="details">Other Details:</label>
+  <textarea id="details" rows="4" placeholder="Any other info..."></textarea>
+
+  <button type="submit">Send via WhatsApp</button>
+</form>
+
+      <a href="https://wa.me/2347041266286" class="btn" target="_blank">Send via WhatsApp</a>
+    </form>
+  </div>
+
+  <div class="contact-links">
+    <a href="https://wa.me/2347041266286" target="_blank">Chat Me on WhatsApp</a>
+    <a href="mailto:abdulmuizabdulkadir6@gmail.com?subject=Invitation%20Design%20Request" class="email" target="_blank">Email Me</a>
+  </div>
+
+  <footer>
+    &copy; 2025 Abdulmuiz. Built with passion and purpose. 💙
+  </footer>
+  <script>
+  function sendToWhatsApp() {
+    const name = document.getElementById("name").value;
+    const eventType = document.getElementById("eventType").value;
+    const eventDate = document.getElementById("eventDate").value;
+    const eventTime = document.getElementById("eventTime").value;
+    const eventVenue = document.getElementById("eventVenue").value;
+    const details = document.getElementById("details").value;
+
+    const message = `Hello Abdulmuiz, I want an invitation for a ${eventType}.
+My name is ${name}.
+📅 Date: ${eventDate}
+⏰ Time: ${eventTime}
+📍 Venue: ${eventVenue}
+📝 Other Details: ${details}`;
+
+    const phoneNumber = "2347012345678"; // Your WhatsApp number
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  }
+</script>
+
+</body>
+</html>
+    
